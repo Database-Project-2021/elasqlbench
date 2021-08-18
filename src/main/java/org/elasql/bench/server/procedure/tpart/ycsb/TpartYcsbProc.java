@@ -84,4 +84,27 @@ public class TpartYcsbProc extends TPartStoredProcedure<ElasqlYcsbProcParamHelpe
 				paramHelper.getInsertCount();
 	}
 
+	// MODIFIED:
+	@Override
+	public int getReadKeyNum(){
+		return getReadingsSize();
+	}
+
+	// MODIFIED:
+	@Override
+	public int getInsertKeyNum(){
+		return paramHelper.getInsertCount();
+	}
+
+	// MODIFIED:
+	@Override
+	public int getUpdateKeyNum(){
+		return writeKeys.length;
+	}
+
+	// MODIFIED:
+	@Override
+	public int getArithNum(){
+		return 0;
+	}
 }
